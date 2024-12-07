@@ -10,7 +10,7 @@ class LibrarySystem{
 	public  static void addBook() {
 		System.out.println("Enter the book info: id, name, and quantity:");
 		int id = scanner.nextInt();
-		scanner.nextLine();  // Consume newline
+		scanner.nextLine();  
 		String name = scanner.nextLine();
 		int quantity = scanner.nextInt();
 		books.addFirst(new Book(id, name, quantity));
@@ -53,7 +53,7 @@ class LibrarySystem{
 
 	public static void addUser() {
 		System.out.println("Enter the user name and id:");
-		scanner.nextLine();  // Consume newline
+		scanner.nextLine();  
 		String name = scanner.nextLine();
 		int id = scanner.nextInt();
 		users.addFirst(new User(id, name));
