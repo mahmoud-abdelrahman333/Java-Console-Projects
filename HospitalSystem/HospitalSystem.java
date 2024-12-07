@@ -1,10 +1,8 @@
 import java.util.*;
 
 public class HospitalSystem {
-	// Each specialization has a deque of patients
 	static List<Deque<Map.Entry<String, String>>> v = new ArrayList<>(21);
 
-	// List of medical specializations
 	static List<String> medicalSpecializations = Arrays.asList(
 			"Cardiology",
 			"Neurology",
@@ -26,15 +24,12 @@ public class HospitalSystem {
 
 	static Patient p;
 public HospitalSystem(){
-	// Initialize the deque list with 21 empty deques
 	for (int i = 0; i <= 20; i++) {
 		v.add(new ArrayDeque<>());
 	}
 
 }
-	// Function to handle option 1 (Add new patient)
 	public static void option1() {
-		// Display the list of specializations
 		for (int i = 0; i < medicalSpecializations.size(); i++) {
 			System.out.println((i + 1) + " : " + medicalSpecializations.get(i));
 		}
@@ -42,7 +37,7 @@ public HospitalSystem(){
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter specialization Number:");
 		p = new Patient(scanner.nextInt(), "", 0);
-		scanner.nextLine(); // consume newline
+		scanner.nextLine(); 
 		System.out.println("Enter name:");
 		p.name = scanner.nextLine();
 		System.out.println("Enter status (0 for regular, 1 for urgent):");
@@ -53,7 +48,6 @@ public HospitalSystem(){
 		} else if (v.get(p.spec).size() == 5) {
 			System.out.println("The list is full");
 		} else {
-			// Determine the patient's status and add accordingly
 			if (p.status == 0) {
 				v.get(p.spec).addLast(new AbstractMap.SimpleEntry<>(p.name, "regular"));
 			} else {
@@ -62,7 +56,6 @@ public HospitalSystem(){
 		}
 	}
 
-	// Function to handle option 2 (Print all patients)
 	public static void option2() {
         boolean flag=true;
 		for (int i = 1; i < v.size(); i++) {
@@ -84,7 +77,6 @@ public HospitalSystem(){
 		}
 	}
 
-	// Function to handle option 3 (Get the next patient)
 	public static void option3() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter the specialization:");
@@ -98,9 +90,7 @@ public HospitalSystem(){
 		}
 	}
 
-	// Main function to handle the hospital system options
 	public static void hospitalSystem() {
-		// Initialize the deque list with 21 empty deques
 		for (int i = 0; i <= 20; i++) {
 			v.add(new ArrayDeque<>());
 		}
